@@ -1,0 +1,73 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class AnimalCounterGUI extends JFrame {
+    private JLabel welcomeLabel;
+    private JLabel alligatorCountLabel;
+    private JLabel sheepCountLabel;
+    private JButton addAlligatorButton;
+    private JButton addSheepButton;
+    private JButton displayCountsButton;
+    private JButton resetCountsButton;
+    private JRadioButton alligatorRadioButton;
+    private JRadioButton sheepRadioButton;
+    private ButtonGroup radioButtonGroup;
+    private JButton exitButton;
+
+    private int alligatorCount;
+    private int sheepCount;
+
+    public AnimalCounterGUI() {
+        // Initialize and configure the GUI components
+        welcomeLabel = new JLabel("Welcome to Animal Counter!");
+        alligatorCountLabel = new JLabel("Alligator Count: 0");
+        sheepCountLabel = new JLabel("Sheep Count: 0");
+
+        addAlligatorButton = new JButton("Add Alligator");
+        addSheepButton = new JButton("Add Sheep");
+        displayCountsButton = new JButton("Display Counts");
+        resetCountsButton = new JButton("Reset Counts");
+        alligatorRadioButton = new JRadioButton("Alligator");
+        sheepRadioButton = new JRadioButton("Sheep");
+        radioButtonGroup = new ButtonGroup();
+        exitButton = new JButton("Exit");
+
+        // Add the radio buttons to the button group
+        radioButtonGroup.add(alligatorRadioButton);
+        radioButtonGroup.add(sheepRadioButton);
+
+        // Configure the layout
+        setLayout(new GridLayout(6, 2));
+
+        // Add the components to the frame
+        add(welcomeLabel);
+        add(new JLabel()); // Empty label for spacing
+        add(alligatorCountLabel);
+        add(sheepCountLabel);
+        add(addAlligatorButton);
+        add(addSheepButton);
+        add(displayCountsButton);
+        add(resetCountsButton);
+        add(alligatorRadioButton);
+        add(sheepRadioButton);
+        add(exitButton);
+
+        // Add event listeners to the buttons
+        ButtonListener buttonListener = new ButtonListener();
+        addAlligatorButton.addActionListener(buttonListener);
+        addSheepButton.addActionListener(buttonListener);
+        displayCountsButton.addActionListener(buttonListener);
+        resetCountsButton.addActionListener(buttonListener);
+        exitButton.addActionListener(buttonListener);
+    }
+
+    private class ButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // Button event handling logic
+            // ...
+        }
+    }
+}
